@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace FileSystemVisitor.Tests
 {
-    static class FileSystemHelper
+    internal static class FileSystemHelper
     {
         public static bool IsAllFiles(IEnumerable<string> pathes)
         {

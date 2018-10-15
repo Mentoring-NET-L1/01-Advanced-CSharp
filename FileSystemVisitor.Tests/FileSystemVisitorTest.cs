@@ -15,7 +15,7 @@ namespace FileSystemVisitor.Tests
 
         private static readonly Comparison<string> StringComparison = (s1, s2) => string.Compare(s1, s2, false);
 
-        private static string[] AllTestFileSystemEntries;
+        private static string[] _allTestFileSystemEntries;
 
         [ClassInitialize]
         public static void CreateTestFilesAndDirectories(TestContext context)
@@ -73,7 +73,7 @@ namespace FileSystemVisitor.Tests
 
             CreateDirectory(rootDirectory);
 
-            AllTestFileSystemEntries = DirectoryHelper
+            _allTestFileSystemEntries = DirectoryHelper
                 .EnumerateFileSystemEntries(TestRootDirectoryName, "*", SearchOption.AllDirectories)
                 .ToArray();
         }
@@ -144,7 +144,7 @@ namespace FileSystemVisitor.Tests
 
             // Assert
             Assert.IsTrue(ArrayHelper.Compare(
-                AllTestFileSystemEntries,
+                _allTestFileSystemEntries,
                 findedEntries,
                 StringComparison)
             );
@@ -165,7 +165,7 @@ namespace FileSystemVisitor.Tests
 
             // Assert
             Assert.IsTrue(ArrayHelper.Compare(
-                AllTestFileSystemEntries,
+                _allTestFileSystemEntries,
                 findedEntries,
                 StringComparison)
             );
@@ -185,7 +185,7 @@ namespace FileSystemVisitor.Tests
 
             // Assert
             Assert.IsTrue(ArrayHelper.Compare(
-                AllTestFileSystemEntries.Where((path) => extensionFilter(path)).ToArray(),
+                _allTestFileSystemEntries.Where((path) => extensionFilter(path)).ToArray(),
                 findedEntries,
                 StringComparison)
             );
@@ -205,7 +205,7 @@ namespace FileSystemVisitor.Tests
 
             // Assert
             Assert.IsTrue(ArrayHelper.Compare(
-                AllTestFileSystemEntries.Where((path) => extensionFilter(path)).ToArray(),
+                _allTestFileSystemEntries.Where((path) => extensionFilter(path)).ToArray(),
                 findedEntries,
                 StringComparison)
             );

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FileSystemVisitor.Tests
 {
@@ -21,7 +18,7 @@ namespace FileSystemVisitor.Tests
             Array.Sort(arr1);
             Array.Sort(arr2);
 
-            for (int i = 0; i < arr1.Length; i++)
+            for (var i = 0; i < arr1.Length; i++)
             {
                 if (comparison(arr1[i], arr2[i]) != 0)
                     return false;

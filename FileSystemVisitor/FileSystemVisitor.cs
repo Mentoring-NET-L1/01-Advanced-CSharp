@@ -10,7 +10,7 @@ namespace FileSystemVisitor
 
         private bool _stopSearch;
         private bool _excludeFileSystemEntry;
-        private Predicate<string> _filter;
+        private readonly Predicate<string> _filter;
 
         public FileSystemVisitor()
             : this(DefaultFilter)

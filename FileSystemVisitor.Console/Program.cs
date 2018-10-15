@@ -2,18 +2,18 @@
 
 namespace FileSystemVisitor.Console
 {
-    class Program
+    internal class Program
     {
         private static void Log(string action, FileSystemVisitorEventArgs args)
         {
             System.Console.WriteLine($"{action}: {args.Path}");
         }
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             var fsv = new FileSystemVisitor((path) => Path.GetExtension(path) == ".cs");
 
-            int counter = 0;
+            var counter = 0;
 
             fsv.Start += delegate { System.Console.WriteLine("Start"); };
             fsv.Finish += delegate { System.Console.WriteLine("Finish"); };
